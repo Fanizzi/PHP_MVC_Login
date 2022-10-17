@@ -14,7 +14,7 @@ class LoginDAO extends DAO
 
     public function selectByEmailAndSenha($email, $senha)
     {
-        $sql = "SELECT * FROM usuario WHERE email = ? and senha = sha1(?)";
+        $sql = "SELECT * FROM usuario WHERE email = ? and senha = ?";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $email);
