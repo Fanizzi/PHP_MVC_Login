@@ -1,5 +1,6 @@
 <?php
 
+use App\Controller\CadastroController;
 use App\Controller\LoginController;
 use App\Controller\PessoaController;
 
@@ -7,6 +8,14 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($url)
 {
+    case '/register':
+        CadastroController::index();
+    break;
+
+    /*case '/register/auth':
+        CadastroController::auth();
+    break;*/
+
     case '/login':
         LoginController::index();
     break;
