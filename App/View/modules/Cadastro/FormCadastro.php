@@ -7,7 +7,7 @@
     <title>Cadastro</title>
 </head>
 <body>
-    <form action="/login" method="post">
+    <form action="/register/save" method="post">
         <label>Nome</label>
         <input name="nome" type="text" />
         

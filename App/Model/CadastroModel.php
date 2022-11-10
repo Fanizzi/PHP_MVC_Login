@@ -8,15 +8,38 @@ class CadastroModel extends Model
 {
     public $id, $nome, $email, $senha;
 
-    public function registrar()
+    public function save()
     {
         $dao = new CadastroDAO();
 
-        $dados_usuario_registrado = $dao->selectByEmailAndSenha($this->email, $this->senha);
+        if(empty($this->id))
+        {
+            $dao->insert($this);
+        }
 
-        if(is_object($dados_usuario_registrado))
-            return $dados_usuario_registrado;
-        else
-            null;
+        header('Location: /login');
+    } 
+    
+    public function update()
+    {
+        $dao = new CadastroDAO();
+
+        $dao->update($this);
+    }
+
+    public function getAllRows()
+    {
+        $dao = new CadastroDAO();
+
+        $this->rows = $dao->select();
+    }
+
+    public function getById(int $id)
+    {
+        $dao = new CadastroDAO();
+
+        $obj = $dao->selectById($id);
+
+        return ($obj) ? $obj : new CadastroModel();
     }
 }
