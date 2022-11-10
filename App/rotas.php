@@ -8,13 +8,16 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($url)
 {
-    case '/register':
-        CadastroController::index();
+    case '/register/form':
+        CadastroController::form();
     break;
 
-    /*case '/register/auth':
-        CadastroController::auth();
-    break;*/
+    case '/register/save':
+        CadastroController::save();
+    break;
+
+    case '/register/update':
+        CadastroController::update();
 
     case '/login':
         LoginController::index();
