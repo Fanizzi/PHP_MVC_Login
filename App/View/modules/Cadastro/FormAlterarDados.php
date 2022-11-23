@@ -7,11 +7,14 @@
     <title>Alterar Dados</title>
 </head>
 <body>
-    <form action="/register/update" method="post">
+    <form action="/login/save" method="post">
         <fieldset>
             <legend> Alterar Senha </legend>
 
             <input type="hidden" value="<?= $model->id ?>" name="id" />
+
+            <label for="nome"> Nome: </label>
+            <input type="text" name="nome" id="nome" value="<?= $model->nome ?>" />
 
             <label for="email"> Email: </label>
             <input type="text" name="email" id="email" value="<?= $model->email ?>" /> 
@@ -26,7 +29,7 @@
 
             <br> <br>
 
-            <button type="submit"> Enviar </button>
+            <button type="submit"> Alterar </button>
         </fieldset>
     </form>
 </body>

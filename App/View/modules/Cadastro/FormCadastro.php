@@ -17,7 +17,7 @@
         <label>Senha:</label>
         <input name="senha" type="password" />
 
-    <button type="submit">Entrar</button>
+    <button type="submit">Registrar</button>
 </form>
 </body>
 </html>

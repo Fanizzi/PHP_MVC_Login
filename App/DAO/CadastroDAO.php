@@ -28,12 +28,13 @@ class CadastroDAO extends DAO
 
     public function update(CadastroModel $model)
     {
-        $sql = 'UPDATE cadastro SET senha=? WHERE email = ? AND senha = ?';
+        $sql = 'UPDATE cadastro SET nome=?, email=?, senha=? WHERE email=?';
 
         $stmt = $this->conexao->prepare($sql);
 
-        $stmt->bindValue(1, $model->email);
-        $stmt->bindValue(2, $model->senha);
+        $stmt->bindValue(1, $model->nome);
+        $stmt->bindValue(2, $model->email);
+        $stmt->bindValue(3, $model->nova_senha);
         
         $stmt->execute();
     }
@@ -62,16 +63,4 @@ class CadastroDAO extends DAO
 
         return $stmt->fetchObject("App\Model\CadastroModel");
     }
-
-    /*public function selectByEmailAndSenha($email, $senha)
-    {
-        $sql = "SELECT * FROM usuario WHERE email = ? and senha = ?";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $email);
-        $stmt->bindValue(2, $senha);
-        $stmt->execute();
-
-        return $stmt->fetchObject("App\Model\CadastroModel");
-    }*/
 }

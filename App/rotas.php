@@ -16,15 +16,16 @@ switch ($url)
         CadastroController::save();
     break;
 
-    case '/register/update':
-        CadastroController::update();
-
     case '/login':
         LoginController::index();
     break;
 
     case '/login/auth':
         LoginController::auth();
+    break;
+
+    case '/login/update':
+        CadastroController::update();
     break;
 
     case '/logout':
